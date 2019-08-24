@@ -12,6 +12,10 @@
     flex-direction: column;
 }
 
+.pageContainer {
+    max-width: 500px;
+}
+
 .pageHeader {
     height: 130px;
     width: 300px;
@@ -21,4 +25,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+button {
+    width: 200px;
 }
