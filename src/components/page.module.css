@@ -1,0 +1,24 @@
+.pageBackground {
+    background: url('/img/background.jpg');
+    height: 100%;
+}
+
+.pageBackgroundShadow {
+    background: linear-gradient(to bottom, #0D47A0, #0D47A000);
+    height: 100%;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pageHeader {
+    height: 130px;
+    width: 300px;
+    background: url('/img/header-frame.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
