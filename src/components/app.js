@@ -1,10 +1,10 @@
 import React from 'react'
-import Page from './page';
+import Page from './setup_quest_page'
 
-import { ThemeProvider } from '@material-ui/styles';
-import { createMuiTheme } from '@material-ui/core/styles';
-import primary from '@material-ui/core/colors/yellow';
-import secondary from '@material-ui/core/colors/orange';
+import { ThemeProvider } from '@material-ui/styles'
+import { createMuiTheme } from '@material-ui/core/styles'
+import primary from '@material-ui/core/colors/yellow'
+import secondary from '@material-ui/core/colors/orange'
 
 const theme = createMuiTheme({
   typography: {
@@ -19,9 +19,12 @@ const theme = createMuiTheme({
   overrides: {
     MuiButton: {
       text: {
-        color: "white"
+        color: "white",
+        borderRadius: 0
       },
       outlined: {
+        color: "white",
+        borderColor: "white",
         borderRadius: 0
       }
     }
