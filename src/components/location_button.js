@@ -14,7 +14,7 @@ export default ({location, active, onClick}) => {
           <Typography align="left" variant="body1">{location.name}</Typography>
         </Grid>
         <Grid item xs={9}>
-          <Typography align="left" variant="body2">{location.description}</Typography>
+          <Typography align="left" variant="body1">{location.description}</Typography>
         </Grid>
       </Grid>
     </Button>

@@ -4,16 +4,18 @@
 }
 
 .pageBackgroundShadow {
-    background: linear-gradient(to bottom, #0D47A0, #0D47A000);
+    background: linear-gradient(to bottom, #0D47A0, #0D47A060);
     height: 100%;
     color: #ffffff;
     display: flex;
     align-items: center;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .pageContainer {
     max-width: 500px;
+    overflow-y: auto;
 }
 
 .pageHeader {

@@ -9,7 +9,7 @@ import secondary from '@material-ui/core/colors/orange';
 const theme = createMuiTheme({
   typography: {
     fontFamily: [
-      "PixelMplus10"
+      "PixelMplus12"
     ]
   },
   palette: {
