@@ -1,8 +1,8 @@
 import React from 'react'
-import Page from './page';
-import locations from '../store/locations'
-import characters from '../store/characters'
-import spices from '../store/spices'
+import Page from '../page';
+import locations from '../../store/locations'
+import characters from '../../store/characters'
+import spices from '../../store/spices'
 
 import LocationButtons from './location_buttons'
 import CharacterButtons from './character_buttons'
@@ -13,12 +13,6 @@ import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 
 export default () => {
-  const renderCharacter = (character) => {
-    return (
-      <p>{character.name}</p>
-    )
-  }
-
   return (
     <Page>
       <Grid container>

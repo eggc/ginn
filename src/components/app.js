@@ -1,5 +1,5 @@
 import React from 'react'
-import Page from './setup_quest_page'
+import Page from './quest/setup_page'
 
 import { ThemeProvider } from '@material-ui/styles'
 import { createMuiTheme } from '@material-ui/core/styles'
