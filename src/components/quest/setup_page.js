@@ -12,23 +12,31 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 
+
+
 export default () => {
+  let active = {
+    location: locations[0],
+    characters: [],
+    spice: null
+  }
+
   return (
     <Page>
       <Grid container>
         <Grid item xs={12}>
           <Typography variant="subtitle1" color="secondary">何処へ向かうか？</Typography>
-          <LocationButtons locations={locations} onChange={(id)=>console.log(id)}/>
+          <LocationButtons locations={locations} onChange={ (id) => active.location = locations[id] } />
 
           <Typography variant="subtitle1" color="secondary">誰が向かうか？</Typography>
-          <CharacterButtons characters={characters} onChange={(id)=>console.log(id)}/>
+          <CharacterButtons characters={characters} onChange={ (flags) => active.characters = characters.filter((c)=>flags[c.id]) } />
 
           <Typography variant="subtitle1" color="secondary">イベントカードを使用するか？</Typography>
-          <SpiceButtons spices={spices} onChange={(id)=>console.log(id)}/>
+          <SpiceButtons spices={spices} onChange={ (id) => active.spice = spices[id] } />
         </Grid>
 
         <Grid item xs={6}>
-          <Button fullWidth>クエストを始める</Button>
+          <Button fullWidth onClick={()=>console.log(active)}>クエストを始める</Button>
         </Grid>
         <Grid item xs={6}>
           <Button fullWidth>やめる</Button>
