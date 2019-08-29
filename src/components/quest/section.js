@@ -4,8 +4,12 @@ import Typist from 'react-typist';
 
 export default ({body, done, color, x}) => {
   const text = body.replace(/"X"/g, x)
+  const texts = text.replace(/。/g, "。%%").split("%%")
+
   const content = (
-    <Typography color={color} align="left" variant="body1" display="inline">{text}</Typography>
+    <Typography color={color} align="left" variant="body1" display="inline">
+      {texts.map((t)=><span>{t}<Typist.Delay ms={300} /></span>)}
+    </Typography>
   )
 
   return (
