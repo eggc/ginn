@@ -1,5 +1,5 @@
 import React from 'react'
-import Page from './quest/setup_page'
+import Quest from './quest/main'
 
 import { ThemeProvider } from '@material-ui/styles'
 import { createMuiTheme } from '@material-ui/core/styles'
@@ -34,7 +34,7 @@ const theme = createMuiTheme({
 export default () => {
   return (
     <ThemeProvider theme={theme}>
-      <Page />
+      <Quest />
     </ThemeProvider>
   )
 }
