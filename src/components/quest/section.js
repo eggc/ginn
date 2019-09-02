@@ -8,7 +8,7 @@ export default ({body, done, color, x}) => {
 
   const content = (
     <Typography color={color} align="left" variant="body1" display="inline">
-      {texts.map((t)=><span>{t}<Typist.Delay ms={300} /></span>)}
+      {texts.map((t, i)=><span key={i}>{t}<Typist.Delay ms={300} /></span>)}
     </Typography>
   )
 
