@@ -27,6 +27,14 @@ const theme = createMuiTheme({
         borderColor: "white",
         borderRadius: 0
       }
+    },
+    MuiTableCell: {
+      head: {
+        color: "white"
+      },
+      body: {
+        color: "white"
+      }
     }
   }
 })

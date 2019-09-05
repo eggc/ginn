@@ -33,6 +33,7 @@ export default ({quest, sections=testSection, onNext}) => {
         <Grid item xs={12}>
           <Typography variant="subtitle1" color="secondary">"{quest.location.name}"の探検</Typography>
           <Sections sections={sections} step={step} character={character} />
+          <Typography variant="body1" color="secondary">"{quest.location.name}"の冒険を終えた。</Typography>
         </Grid>
       </Grid>
     </Page>

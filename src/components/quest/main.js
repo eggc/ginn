@@ -14,9 +14,10 @@ export default () => {
     characters: characters,
     spice: spices[0]
   }
+  const defaultResult = {}
 
   const [quest, setQuest] = React.useState(defaultQuest)
-  const [result, setResult] = React.useState(null)
+  const [result, setResult] = React.useState(defaultResult)
 
   return (
     <React.Fragment>
