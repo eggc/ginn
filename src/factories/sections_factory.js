@@ -1,4 +1,5 @@
 import {questEvents} from '../seeds'
+import _ from 'lodash'
 
 class SectionFactory {
   create(quest) {
@@ -34,8 +35,8 @@ class SectionFactory {
   }
 
   _createResultSection(questEvent) {
-    const result = questEvent.results[Math.floor(questEvent.results.length * Math.random())]
-    const pickedCharacter = this.quest.characters[Math.floor(this.quest.characters.length * Math.random())]
+    const result = _.sample(questEvent.results)
+    const pickedCharacter = _.sample(this.quest.characters)
 
     return {
       title: result.title,
