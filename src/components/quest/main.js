@@ -3,9 +3,21 @@ import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 import SetupPage from './setup_page'
 import ProgressPage from './progress_page'
 import EvaluatePage from './evaluate_page'
+
+import questStore from '../../stores/quest_store'
+import SectionFactory from '../../factories/sections_factory'
+
 import Typography from '@material-ui/core/Typography'
 
 export default () => {
+  console.debug("render main")
+  const [quest, setQuest] = React.useState(questStore.load())
+  const sections = SectionFactory.create(quest)
+  const onNext = (q) => {
+    questStore.save(q)
+    setQuest(questStore.load())
+  }
+
   return (
     <React.Fragment>
       <Router>
@@ -18,9 +30,9 @@ export default () => {
         </Typography>
 
         <Switch>
-          <Route path="/quest/setup" component={SetupPage} />
-          <Route path="/quest/progress" component={ProgressPage} />
-          <Route path="/quest/evaluate" component={EvaluatePage} />
+          <Route path="/quest/setup"><SetupPage onNext={onNext} /></Route>
+          <Route path="/quest/progress"><ProgressPage sections={sections} /></Route>
+          <Route path="/quest/evaluate"><EvaluatePage results={quest.results} /></Route>
         </Switch>
       </Router>
     </React.Fragment>

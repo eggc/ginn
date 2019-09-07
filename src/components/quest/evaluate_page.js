@@ -11,8 +11,7 @@ import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 
-export default () => {
-  const results = questStore.load().results
+export default ({results}) => {
   const summary = {
     title: '総計',
     money: 0,

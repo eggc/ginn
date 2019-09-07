@@ -4,6 +4,7 @@ import _ from 'lodash'
 class QuestStore {
   load() {
     const questBase = JSON.parse(localStorage.getItem("quest"))
+    if(!questBase) { return {} }
     const quest = {
       location: locations[questBase.location],
       characters: questBase.characters.map((c) => characters[c]),
@@ -11,10 +12,13 @@ class QuestStore {
       events: questBase.events.map((e) => questEvents[e]),
       results: this._restoreResult(questBase)
     }
+    console.debug("load quest", quest)
     return quest
   }
 
   save(quest) {
+    console.debug("save quest", quest)
+
     const events = _.shuffle(questEvents).slice(2)
     quest.events = events.map((e) => e.id)
     quest.results = events.map((e) => _.sample(e.results).id)

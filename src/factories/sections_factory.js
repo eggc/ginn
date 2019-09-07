@@ -35,11 +35,9 @@ class SectionFactory {
   }
 
   _createResultSection(result) {
-    const pickedCharacter = _.sample(this.quest.characters)
-
     return {
       title: result.title,
-      body: result.body.replace(/"X"/g, pickedCharacter.name),
+      body: result.body,
       color: "primary"
     }
   }
