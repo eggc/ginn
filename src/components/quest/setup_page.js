@@ -6,6 +6,8 @@ import locations from '../../store/locations'
 import characters from '../../store/characters'
 import spices from '../../store/spices'
 
+import questStore from '../../stores/quest_store'
+
 import LocationButtons from './location_buttons'
 import CharacterButtons from './character_buttons'
 import SpiceButtons from './spice_buttons'
@@ -17,11 +19,8 @@ import Button from '@material-ui/core/Button'
 const quest = {
   location: 0,
   characters: [],
-  spice: null
-}
-
-const saveQuest = (quest) => {
-  localStorage.setItem("quest", JSON.stringify(quest))
+  spice: null,
+  results: []
 }
 
 export default () => {
@@ -40,7 +39,7 @@ export default () => {
         </Grid>
 
         <Grid item xs={6}>
-          <Link to="/quest/progress" onClick={ () => saveQuest(quest) }>
+          <Link to="/quest/progress" onClick={ () =>  questStore.save(quest) }>
             <Button fullWidth>クエストを始める</Button>
           </Link>
         </Grid>

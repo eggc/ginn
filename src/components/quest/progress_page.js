@@ -8,23 +8,14 @@ import Grid from '@material-ui/core/Grid'
 import locations from '../../store/locations'
 import characters from '../../store/characters'
 import spices from '../../store/spices'
+import questStore from '../../stores/quest_store'
 
 import SectionFactory from '../../factories/sections_factory'
 
-const loadQuest = () => {
-  const questBase = JSON.parse(localStorage.getItem("quest"))
-  const quest = {
-    location: locations[questBase.location],
-    characters: questBase.characters.map((c) => characters[c]),
-    spice: spices[questBase.spice]
-  }
-  return quest
-}
-
-const quest = loadQuest()
-const sections = SectionFactory.create(quest)
-
 export default ({history}) => {
+  const quest = questStore.load()
+  const sections = SectionFactory.create(quest)
+
   const [step, setStep] = React.useState(0)
 
   const onClick = () => {
