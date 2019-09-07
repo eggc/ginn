@@ -1,4 +1,5 @@
 import {locations, characters, spices, questEvents} from '../seeds/'
+import _ from 'lodash'
 
 class QuestStore {
   load() {
@@ -14,8 +15,9 @@ class QuestStore {
   }
 
   save(quest) {
-    quest.events = [0,1]
-    quest.results = [Math.floor(Math.random()*5), Math.floor(Math.random()*5)]
+    const events = _.shuffle(questEvents).slice(2)
+    quest.events = events.map((e) => e.id)
+    quest.results = events.map((e) => _.sample(e.results).id)
     localStorage.setItem("quest", JSON.stringify(quest))
   }
 
