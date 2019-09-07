@@ -29,8 +29,8 @@ export default ({onNext}) => {
           <Typography variant="subtitle1" color="secondary">誰が向かうか？</Typography>
           <CharacterButtons characters={characters} onChange={(ids) => quest.characters = ids} />
 
-          <Typography variant="subtitle1" color="secondary">イベントカードを使用するか？</Typography>
-          <SpiceButtons spices={spices} onChange={(id) => quest.spice = id} />
+          {/* <Typography variant="subtitle1" color="secondary">イベントカードを使用するか？</Typography>
+              <SpiceButtons spices={spices} onChange={(id) => quest.spice = id} /> */}
         </Grid>
 
         <Grid item xs={6}>
