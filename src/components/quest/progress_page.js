@@ -1,29 +1,37 @@
 import React from 'react'
 import Page from '../page';
 import Sections from './sections';
-import questEvents from '../../store/quest_events'
+
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 
-export default ({quest, sections = [], onNext}) => {
-  const [step, setStep] = React.useState(0)
-  const [character] = React.useState(quest.characters[Math.floor(quest.characters.length * Math.random())])
+import locations from '../../store/locations'
+import characters from '../../store/characters'
+import spices from '../../store/spices'
 
-  const onClick = () => {
-    if(step === sections.length){
-      onNext("result object")
-    } else {
-      setStep(step+1)
-    }
+import SectionFactory from '../../factories/sections_factory'
+
+const loadQuest = () => {
+  const questBase = JSON.parse(localStorage.getItem("quest"))
+  const quest = {
+    location: locations[questBase.location],
+    characters: questBase.characters.map((c) => characters[c]),
+    spice: spices[questBase.spice]
   }
+  return quest
+}
+
+const quest = loadQuest()
+const sections = SectionFactory.create(quest)
+
+export default () => {
+  const [step, setStep] = React.useState(0)
 
   return (
-    <Page onClick={onClick}>
+    <Page onClick={()=>setStep(step+1)}>
       <Grid container>
         <Grid item xs={12}>
-
-          <Sections sections={sections} step={step} character={character} />
-
+          <Sections sections={sections} step={step} />
         </Grid>
       </Grid>
     </Page>

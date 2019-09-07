@@ -10,6 +10,8 @@ export default {
 
     questEvents.forEach((questEvent) => {
       const result = questEvent.results[Math.floor(questEvent.results.length * Math.random())]
+      const pickedCharacter = quest.characters[Math.floor(quest.characters.length * Math.random())]
+      result.body = result.body.replace(/"X"/g, pickedCharacter.name)
       sections.push(questEvent)
       sections.push(result)
     })

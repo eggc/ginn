@@ -2,9 +2,8 @@ import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import Typist from 'react-typist';
 
-export default ({body, done, color, x}) => {
-  const text = body.replace(/"X"/g, x)
-  const texts = text.replace(/。/g, "。%%").split("%%")
+export default ({body, done, color}) => {
+  const texts = body.replace(/。/g, "。%%").split("%%")
 
   const content = (
     <Typography color={color} align="left" variant="body1" display="inline">
