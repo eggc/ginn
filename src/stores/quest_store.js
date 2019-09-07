@@ -1,7 +1,7 @@
 import {locations, characters, spices} from '../seeds/'
 
-export default {
-  load: () => {
+class QuestStore {
+  load() {
     const questBase = JSON.parse(localStorage.getItem("quest"))
     const quest = {
       location: locations[questBase.location],
@@ -9,11 +9,13 @@ export default {
       spice: spices[questBase.spice]
     }
     return quest
-  },
+  }
 
-  save: (quest) => {
+  save(quest) {
     quest.events = [0,1]
     quest.results = [Math.floor(Math.random()*5), Math.floor(Math.random()*5)]
     localStorage.setItem("quest", JSON.stringify(quest))
   }
 }
+
+export default new QuestStore()
