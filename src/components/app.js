@@ -10,7 +10,7 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: [
       "PixelMplus12"
-    ]
+    ],
   },
   palette: {
     primary: primary,
@@ -26,6 +26,9 @@ const theme = createMuiTheme({
         color: "white",
         borderColor: "white",
         borderRadius: 0
+      },
+      root: {
+        textDecoration: "none"
       }
     },
     MuiTableCell: {

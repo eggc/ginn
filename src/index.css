@@ -3,6 +3,10 @@ html, body, #root {
   height: 100%;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* Typist.css */
 .Typist .Cursor {
     display: inline-block; }
