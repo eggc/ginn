@@ -1,6 +1,4 @@
-import locations from '../store/locations'
-import characters from '../store/characters'
-import spices from '../store/spices'
+import {locations, characters, spices} from '../seeds/'
 
 export default {
   load: () => {

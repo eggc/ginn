@@ -5,11 +5,7 @@ import Sections from './sections'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 
-import locations from '../../store/locations'
-import characters from '../../store/characters'
-import spices from '../../store/spices'
 import questStore from '../../stores/quest_store'
-
 import SectionFactory from '../../factories/sections_factory'
 
 export default ({history}) => {

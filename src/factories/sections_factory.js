@@ -1,4 +1,4 @@
-import questEvents from '../store/quest_events'
+import {questEvents} from '../seeds'
 
 export default {
   create: (quest) => {

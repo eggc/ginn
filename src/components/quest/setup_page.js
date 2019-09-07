@@ -2,10 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 import Page from '../page';
-import locations from '../../store/locations'
-import characters from '../../store/characters'
-import spices from '../../store/spices'
-
+import {locations, characters, spices} from '../../seeds/'
 import questStore from '../../stores/quest_store'
 
 import LocationButtons from './location_buttons'
