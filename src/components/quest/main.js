@@ -31,7 +31,9 @@ export default () => {
 
         <Switch>
           <Route path="/quest/setup"><SetupPage onNext={onNext} /></Route>
-          <Route path="/quest/progress"><ProgressPage sections={sections} /></Route>
+          <Route path="/quest/progress" render={(routeProps) =>
+            <ProgressPage history={routeProps.history} sections={sections}/>}
+          />
           <Route path="/quest/evaluate"><EvaluatePage results={quest.results} /></Route>
         </Switch>
       </Router>
