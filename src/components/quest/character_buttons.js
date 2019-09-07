@@ -10,7 +10,15 @@ export default ({characters, onChange}) => {
       const newState = Object.assign({}, activeCharacterIds)
       newState[id] = !activeCharacterIds[id]
       setActiveCharacterIds(newState)
-      onChange(newState)
+
+      const ids = []
+      Object.keys(newState).forEach((key) => {
+        if(newState[key]){
+          ids.push(key)
+        }
+      })
+
+      onChange(ids)
     }
 
     return (

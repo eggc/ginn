@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+
 import Page from '../page';
 import locations from '../../store/locations'
 import characters from '../../store/characters'
@@ -12,34 +14,40 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 
+const quest = {
+  location: 0,
+  characters: [],
+  spice: null
+}
 
+const saveQuest = (quest) => {
+  localStorage.setItem("quest", JSON.stringify(quest))
+}
 
-export default ({onNext}) => {
-  let active = {
-    location: locations[0],
-    characters: [],
-    spice: null
-  }
-
+export default () => {
   return (
     <Page>
       <Grid container>
         <Grid item xs={12}>
           <Typography variant="subtitle1" color="secondary">何処へ向かうか？</Typography>
-          <LocationButtons locations={locations} onChange={(id) => active.location = locations[id]} />
+          <LocationButtons locations={locations} onChange={(id) => quest.location = id} />
 
           <Typography variant="subtitle1" color="secondary">誰が向かうか？</Typography>
-          <CharacterButtons characters={characters} onChange={(flags) => active.characters = characters.filter((c)=>flags[c.id])} />
+          <CharacterButtons characters={characters} onChange={(ids) => quest.characters = ids} />
 
           <Typography variant="subtitle1" color="secondary">イベントカードを使用するか？</Typography>
-          <SpiceButtons spices={spices} onChange={(id) => active.spice = spices[id]} />
+          <SpiceButtons spices={spices} onChange={(id) => quest.spice = id} />
         </Grid>
 
         <Grid item xs={6}>
-          <Button fullWidth onClick={() => onNext(active)}>クエストを始める</Button>
+          <Link to="/quest/progress" onClick={ () => saveQuest(quest) }>
+            <Button fullWidth>クエストを始める</Button>
+          </Link>
         </Grid>
         <Grid item xs={6}>
-          <Button fullWidth>やめる</Button>
+          <Link to="/">
+            <Button fullWidth>やめる</Button>
+          </Link>
         </Grid>
       </Grid>
     </Page>
