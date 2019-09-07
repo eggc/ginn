@@ -1,5 +1,6 @@
 import React from 'react'
 import Page from '../page';
+import questStore from '../../stores/quest_store'
 
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -10,39 +11,17 @@ import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 
-export default ({quest, result}) => {
-  result = {
-    rewards: [{
-      id: 0,
-      name: "崖下に咲く花",
-      money: 100,
-      exp: 1.0
-    },{
-      id: 1,
-      name: "ゲバル討伐",
-      money: 1000,
-      exp: 1.0
-    },{
-      id: 2,
-      name: quest.location.name + "攻略",
-      money: 0,
-      exp: 1.0
-    },{
-      id: 3,
-      name: "シールドマンティス遭遇",
-      money: 0,
-      exp: 1.5
-    }]
-  }
-
+export default () => {
+  const results = questStore.load().results
   const summary = {
-    name: '総計',
+    title: '総計',
     money: 0,
     exp: 0
   }
-  result.rewards.each((reward)=> {
-    summary.money += reward.money
-    summary.exp += reward.exp
+
+  results.forEach((result)=> {
+    summary.money += result.money
+    summary.exp += result.exp
   })
 
   return (
@@ -59,16 +38,16 @@ export default ({quest, result}) => {
               </TableRow>
             </TableHead>
             <TableBody style={{borderTop: "solid 1px white"}}>
-              {result.rewards.map((c,i)=>(
+              {results.map((c,i)=>(
                 <TableRow key={i}>
-                  <TableCell>{c.name}</TableCell>
+                  <TableCell>{c.title}</TableCell>
                   <TableCell align="right"> {c.exp.toFixed(1)} EXP </TableCell>
                   <TableCell align="right"> {c.money} G </TableCell>
                 </TableRow>
               ))}
               <TableRow>
-                <TableCell><Typography color="primary">{summary.name}</Typography></TableCell>
-                <TableCell align="right"><Typography color="primary">{summary.exp} EXP </Typography></TableCell>
+                <TableCell><Typography color="primary">{summary.title}</Typography></TableCell>
+                <TableCell align="right"><Typography color="primary">{summary.exp.toFixed(1)} EXP </Typography></TableCell>
                 <TableCell align="right"><Typography color="primary">{summary.money} G </Typography></TableCell>
               </TableRow>
             </TableBody>
