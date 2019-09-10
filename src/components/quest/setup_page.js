@@ -2,11 +2,10 @@ import React from 'react'
 import { Link } from "react-router-dom"
 
 import Page from '../page'
-import {locations, characters, spices} from '../../seeds/'
+import {locations, characters} from '../../seeds/'
 
 import LocationButtons from './location_buttons'
 import CharacterButtons from './character_buttons'
-import SpiceButtons from './spice_buttons'
 
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'

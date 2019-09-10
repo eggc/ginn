@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter as Router, Route, Link, Switch } from "react-router-dom"
+import { HashRouter as Router, Route, Switch } from "react-router-dom"
 
 import Nav from '../nav'
 import SetupPage from './setup_page'
@@ -8,8 +8,6 @@ import EvaluatePage from './evaluate_page'
 
 import questStore from '../../stores/quest_store'
 import SectionFactory from '../../factories/sections_factory'
-
-import Typography from '@material-ui/core/Typography'
 
 export default () => {
   console.debug("render main")

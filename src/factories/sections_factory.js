@@ -1,4 +1,3 @@
-import {questEvents} from '../seeds'
 import _ from 'lodash'
 
 class SectionFactory {

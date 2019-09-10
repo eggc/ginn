@@ -1,6 +1,5 @@
 import React from 'react'
-import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
-import Typography from '@material-ui/core/Typography'
+import { HashRouter as Router, Route, Switch } from "react-router-dom"
 import RootPage from './root'
 import Nav from '../nav'
 
