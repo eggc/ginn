@@ -1,26 +1,35 @@
 import React from 'react'
 import CharacterButton from './character_button'
 
-export default ({characters, onChange}) => {
+
+export default ({characters, onChange, multiple}) => {
   const [activeCharacterIds, setActiveCharacterIds] = React.useState({})
+  multiple = multiple === undefined ? true : multiple
 
-  const renderCharacter = (character) => {
+  const onClick = (id) => {
+    let newState
 
-    const onClick = (id) => {
-      const newState = Object.assign({}, activeCharacterIds)
+    if(multiple) {
+      newState = Object.assign({}, activeCharacterIds)
       newState[id] = !activeCharacterIds[id]
       setActiveCharacterIds(newState)
-
-      const ids = []
-      Object.keys(newState).forEach((key) => {
-        if(newState[key]){
-          ids.push(key)
-        }
-      })
-
-      onChange(ids)
+    } else {
+      newState = {}
+      newState[id] = true
+      setActiveCharacterIds(newState)
     }
 
+    const ids = []
+    Object.keys(newState).forEach((key) => {
+      if(newState[key]){
+        ids.push(key)
+      }
+    })
+
+    onChange(ids)
+  }
+
+  const renderCharacter = (character) => {
     return (
       <CharacterButton
         key={character.id}
