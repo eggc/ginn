@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Link, Switch } from "react-router-dom"
 import SetupPage from './setup_page'
 import ProgressPage from './progress_page'
 import EvaluatePage from './evaluate_page'
@@ -22,7 +22,7 @@ export default () => {
     <React.Fragment>
       <Router>
         <Typography>
-          デバッグ：
+          quest /
           <Link to="/">root</Link> /
           <Link to="/quest/setup">setup</Link> /
           <Link to="/quest/progress/">progress</Link> /
