@@ -1,5 +1,6 @@
 import React from 'react'
 import theme from './theme'
+import Nav from './nav'
 import Quest from './quest/main'
 import Game from './game/main'
 
@@ -11,12 +12,7 @@ export default () => {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <Typography>
-          デバッグ：
-          <Link to="/">root</Link> /
-          <Link to="/game/">game</Link> /
-          <Link to="/quest/">quest</Link> /
-        </Typography>
+        <Nav paths={["game", "quest"]} />
 
         <Switch>
           <Route path="/quest/"><Quest /></Route>

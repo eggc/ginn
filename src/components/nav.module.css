@@ -1,0 +1,10 @@
+.navContainer {
+    margin: 0;
+    margin-left: 5px;
+    padding: 0;
+}
+
+.navItem {
+    display: inline;
+    margin-right: 5px;
+}

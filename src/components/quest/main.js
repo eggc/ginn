@@ -1,5 +1,7 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom"
+
+import Nav from '../nav'
 import SetupPage from './setup_page'
 import ProgressPage from './progress_page'
 import EvaluatePage from './evaluate_page'
@@ -21,13 +23,7 @@ export default () => {
   return (
     <React.Fragment>
       <Router>
-        <Typography>
-          quest /
-          <Link to="/">root</Link> /
-          <Link to="/quest/setup">setup</Link> /
-          <Link to="/quest/progress/">progress</Link> /
-          <Link to="/quest/evaluate/">evaluate</Link>
-        </Typography>
+        <Nav resourceName="quest" paths={["setup", "progress", "evaluate"]}></Nav>
 
         <Switch>
           <Route path="/quest/setup"><SetupPage onNext={onNext} /></Route>
