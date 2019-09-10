@@ -38,7 +38,7 @@ export default ({onNext}) => {
           </Link>
         </Grid>
         <Grid item xs={6}>
-          <Link to="/">
+          <Link to="/game/home">
             <Button fullWidth>やめる</Button>
           </Link>
         </Grid>
