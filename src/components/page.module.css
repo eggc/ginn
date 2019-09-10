@@ -13,9 +13,14 @@
     overflow: hidden;
 }
 
-.pageContainer {
-    width: 500px;
+.pageScrollable {
+    width: 100%;
     overflow-y: auto;
+}
+
+.pageContainer {
+    max-width: 500px;
+    margin: auto;
 }
 
 .pageHeader {

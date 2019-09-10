@@ -9,9 +9,11 @@ export default ({children, onClick, header}) => {
   return (
     <div className={styles.pageBackground} onClick={onClick}>
       <div className={styles.pageBackgroundShadow}>
-        <div className={styles.pageContainer}>
-          {header && renderHeader()}
-          {children}
+        <div className={styles.pageScrollable}>
+          <div className={styles.pageContainer}>
+            {header && renderHeader()}
+            {children}
+          </div>
         </div>
       </div>
     </div>
