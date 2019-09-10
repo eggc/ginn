@@ -9,7 +9,9 @@ export default () => {
       <Router>
         <Nav resourceName="game" paths={["setup"]}></Nav>
         <Switch>
-          <Route exact path="/game/"><RootPage onClick={()=>{}} /></Route>
+          <Route exact path="/game" render={(routeProps) =>
+            <RootPage history={routeProps.history}/>}
+          />
           <Route path="/game/setup">setup</Route>
         </Switch>
       </Router>
