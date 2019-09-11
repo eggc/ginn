@@ -19,8 +19,12 @@ export default ({results, onComplete}) => {
   }
 
   results.forEach((result)=> {
-    summary.money += result.money
-    summary.exp += result.exp
+    if (!isNaN(result.money)) {
+      summary.money += result.money
+    }
+    if (!isNaN(result.exp)) {
+      summary.exp += result.exp
+    }
   })
 
   return (
