@@ -2,7 +2,7 @@ import React from 'react'
 import LocationButton from './location_button'
 
 export default ({locations, onChange}) => {
-  const [activeLocationId, setActiveLocationId] = React.useState(0)
+  const [activeLocationId, setActiveLocationId] = React.useState(null)
 
   const renderLocation = (location) => {
     return (

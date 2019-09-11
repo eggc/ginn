@@ -12,12 +12,21 @@ import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 
 const quest = {
-  location: 0,
+  location: null,
   characters: [],
   spice: null
 }
 
 export default ({onNext, characters}) => {
+  const onClickNext = (e) => {
+    if (quest.characters.length > 0 && quest.location) {
+      onNext(quest)
+    } else {
+      alert("目的地とメンバーを選ばない限り、クエストを始める事はできない。")
+      e.preventDefault()
+    }
+  }
+
   return (
     <Page>
       <Grid container>
@@ -33,7 +42,7 @@ export default ({onNext, characters}) => {
         </Grid>
 
         <Grid item xs={6}>
-          <Link to="/quest/progress" onClick={()=>onNext(quest)}>
+          <Link to="/quest/progress" onClick={onClickNext}>
             <Button fullWidth>クエストを始める</Button>
           </Link>
         </Grid>

@@ -13,6 +13,15 @@ import Button from '@material-ui/core/Button'
 export default ({onComplete}) => {
   const [character, setCharacter] = React.useState(null)
 
+  const onClick = (e) => {
+    if (character) {
+      onComplete(characters[character])
+    } else {
+      alert("選べ")
+      e.preventDefault()
+    }
+  }
+
   return (
     <Page>
       <Grid container>
@@ -24,7 +33,7 @@ export default ({onComplete}) => {
         </Grid>
 
         <Grid item xs={6}>
-          <Link to="/game/home" onClick={()=>onComplete(characters[character])}>
+          <Link to="/game/home" onClick={onClick}>
             <Button fullWidth>これでよし</Button>
           </Link>
         </Grid>
