@@ -20,7 +20,7 @@ export default ({onComplete}) => {
           <Typography variant="subtitle1" color="secondary">主人公を選べ</Typography>
           <CharacterButtons multiple={false}
                             characters={characters}
-                            onChange={(id) => setCharacter(id[0])} />
+                            onChange={(ids) => setCharacter(ids[0])} />
         </Grid>
 
         <Grid item xs={6}>

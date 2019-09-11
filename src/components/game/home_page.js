@@ -18,8 +18,16 @@ export default ({game}) => {
           <Typography color="secondary">
             ホーム
           </Typography>
-          <Typography>
-            仲間一覧 : {game.characters.map((c)=><span key={c.id}>{c.name}</span>)}
+          <Typography component="div">
+            <div>
+              仲間 : {game.characters.map((c)=><span key={c.id}>{c.name} {c.exp}</span>)}
+            </div>
+            <div>
+              資金 : {game.money}
+            </div>
+            <div>
+              倉庫 : {game.items}
+            </div>
           </Typography>
         </Grid>
 
