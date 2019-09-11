@@ -24,7 +24,7 @@ export default ({onComplete}) => {
         </Grid>
 
         <Grid item xs={6}>
-          <Link to="/game/home" onClick={()=>onComplete(character)}>
+          <Link to="/game/home" onClick={()=>onComplete(characters[character])}>
             <Button fullWidth>これでよし</Button>
           </Link>
         </Grid>

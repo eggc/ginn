@@ -22,13 +22,6 @@ class GameStore {
     localStorage.setItem("game", JSON.stringify(gameBase))
   }
 
-  saveFirstCharacter(characterId) {
-    const gameBase = {
-      characters: [characterId]
-    }
-    localStorage.setItem("game", JSON.stringify(gameBase))
-  }
-
   _initGameBase() {
     const gameBase = JSON.parse(localStorage.getItem("game")) || {}
     gameBase.characters = gameBase.characters || []

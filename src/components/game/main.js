@@ -10,7 +10,8 @@ import gameStore from '../../stores/game_store'
 export default () => {
   const [game, setGame] = React.useState(gameStore.load())
   const onCompleteSetup = (character) => {
-    gameStore.saveFirstCharacter(character)
+    game.characters = [character]
+    gameStore.save(game)
     setGame(gameStore.load())
   }
 
