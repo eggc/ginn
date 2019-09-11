@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom"
 
 import Page from '../page'
-import {locations, characters} from '../../seeds/'
+import {locations} from '../../seeds/'
 
 import LocationButtons from './location_buttons'
 import CharacterButtons from './character_buttons'
@@ -17,7 +17,7 @@ const quest = {
   spice: null
 }
 
-export default ({onNext}) => {
+export default ({onNext, characters}) => {
   return (
     <Page>
       <Grid container>

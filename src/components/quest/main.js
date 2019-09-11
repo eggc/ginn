@@ -13,12 +13,12 @@ import SectionFactory from '../../factories/sections_factory'
 export default () => {
   console.debug("render main")
   const [quest, setQuest] = React.useState(questStore.load())
+  const [game, setGame] = React.useState(gameStore.load())
   const onNext = (q) => {
     questStore.save(q)
     setQuest(questStore.load())
   }
   const onComplete = (result) => {
-    const game = gameStore.load()
     game.money += result.money
     game.characters.forEach((c)=>{
       if ("クエストに参加していたら") {
@@ -34,7 +34,9 @@ export default () => {
         <Nav resourceName="quest" paths={["setup", "progress", "evaluate"]}></Nav>
 
         <Switch>
-          <Route path="/quest/setup"><SetupPage onNext={onNext} /></Route>
+          <Route path="/quest/setup">
+            <SetupPage onNext={onNext} characters={game.characters}/>
+          </Route>
           <Route path="/quest/progress" render={(routeProps) =>
             <ProgressPage history={routeProps.history} sections={SectionFactory.create(quest)}/>}
           />
