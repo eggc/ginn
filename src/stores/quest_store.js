@@ -3,8 +3,7 @@ import _ from 'lodash'
 
 class QuestStore {
   load() {
-    const questBase = JSON.parse(localStorage.getItem("quest"))
-    if(!questBase) { return {} }
+    const questBase = this._initQuestBase()
     const quest = {
       location: locations[questBase.location],
       characters: questBase.characters.map((c) => characters[c]),
@@ -23,6 +22,14 @@ class QuestStore {
     quest.events = events.map((e) => e.id)
     quest.results = events.map((e) => _.sample(e.results).id)
     localStorage.setItem("quest", JSON.stringify(quest))
+  }
+
+  _initQuestBase() {
+    const questBase = JSON.parse(localStorage.getItem("quest")) || {}
+    questBase.characters = questBase.characters || []
+    questBase.spices = questBase.spices || []
+    questBase.events = questBase.events || []
+    return questBase
   }
 
   _restoreResult(questBase) {
