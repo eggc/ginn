@@ -1,5 +1,5 @@
-import {characters} from '../seeds/'
 import Game from '../models/game'
+import Character from '../models/character'
 
 class GameStore {
   load() {
@@ -36,11 +36,7 @@ class GameStore {
     return new Game(
       gameBase.round,
       gameBase.money,
-      gameBase.characters.map((c) => {
-        const character = characters[c]
-        character.exp = gameBase.exps[c] || 0
-        return character
-      })
+      gameBase.characters.map((c) => new Character(c, gameBase.exps[c]))
     )
   }
 }
