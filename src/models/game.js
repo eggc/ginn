@@ -10,14 +10,16 @@ export default class Game {
   }
 
   createNewcomer() {
-    const currentCharacterIds = this.characters.map((c)=>c.id)
-    const newcomerId = Character.findNewcomerId(currentCharacterIds)
-    const exp = (_.random(1, 2.5) * this.round).toFixed(1)
+    return this.createNewcomers(1)[0]
+  }
 
-    if(newcomerId >= 0) {
-      return new Character(newcomerId, exp)
-    } else {
-      return null
-    }
+  createNewcomers(size) {
+    const currentCharacterIds = this.characters.map((c)=>c.id)
+    const newcomerIds = Character.findNewcomerIds(currentCharacterIds, size)
+    const newcomers = newcomerIds.map((id)=>{
+      const exp = (_.random(1, 2.5) * this.round).toFixed(1)
+      return new Character(id, exp)
+    })
+    return newcomers
   }
 }

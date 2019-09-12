@@ -18,7 +18,10 @@ export default class Character {
 }
 
 Character.findNewcomerId = (excludeIds) => {
+  return this.findNewcomerIds(excludeIds, 1)[0]
+}
+Character.findNewcomerIds = (excludeIds, size) => {
   const characterIds = characters.map((c)=>c.id)
   const newcomers = _.difference(characterIds, excludeIds)
-  return _.sample(newcomers)
+  return _.shuffle(newcomers).slice(0, size)
 }
