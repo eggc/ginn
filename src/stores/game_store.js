@@ -14,6 +14,7 @@ class GameStore {
     game.characters.forEach((c)=> exps[c.id] = c.exp)
 
     const gameBase = {
+      round: game.round,
       money: game.money,
       characters: game.characters.map((c)=>c.id),
       exps: exps
@@ -27,11 +28,13 @@ class GameStore {
     gameBase.characters = gameBase.characters || []
     gameBase.exps = gameBase.exps || {}
     gameBase.money = gameBase.money || 0
+    gameBase.round = gameBase.round || 1
     return gameBase
   }
 
   _createGame(gameBase) {
     return {
+      round: gameBase.round,
       money: gameBase.money,
       characters: gameBase.characters.map((c) => {
         const character = characters[c]

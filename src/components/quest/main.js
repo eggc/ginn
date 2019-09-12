@@ -19,6 +19,7 @@ export default () => {
     setQuest(questStore.load())
   }
   const onComplete = (result) => {
+    game.round += 1
     game.money += result.money
     game.characters.forEach((c)=>{
       if ("クエストに参加していたら") {
