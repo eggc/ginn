@@ -1,5 +1,5 @@
-import {characters} from '../seeds/'
 import _ from 'lodash'
+import Character from './character'
 
 // プレイヤーの状態を表すクラス
 export default class Game {
@@ -10,11 +10,14 @@ export default class Game {
   }
 
   createNewcomer() {
-    const newcomers = characters.filter((c)=> !this.characters.includes(c))
-    const newcomer = _.sample(newcomers)
-    if(newcomer) {
-      newcomer.exp = (_.random(1, 2.5) * this.round).toFixed(1)
+    const currentCharacterIds = this.characters.map((c)=>c.id)
+    const newcomerId = Character.findNewcomerId(currentCharacterIds)
+    const exp = (_.random(1, 2.5) * this.round).toFixed(1)
+
+    if(newcomerId >= 0) {
+      return new Character(newcomerId, exp)
+    } else {
+      return null
     }
-    return newcomer
   }
 }
