@@ -1,5 +1,5 @@
 import {characters} from '../seeds/'
-import _ from 'lodash'
+import Game from '../models/game'
 
 class GameStore {
   load() {
@@ -33,15 +33,15 @@ class GameStore {
   }
 
   _createGame(gameBase) {
-    return {
-      round: gameBase.round,
-      money: gameBase.money,
-      characters: gameBase.characters.map((c) => {
+    return new Game(
+      gameBase.round,
+      gameBase.money,
+      gameBase.characters.map((c) => {
         const character = characters[c]
         character.exp = gameBase.exps[c] || 0
         return character
       })
-    }
+    )
   }
 }
 
