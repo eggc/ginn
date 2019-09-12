@@ -44,13 +44,13 @@ export default ({results, onComplete}) => {
               {results.map((c,i)=>(
                 <TableRow key={i}>
                   <TableCell>{c.title}</TableCell>
-                  <TableCell align="right"> {c.exp.toFixed(1)} EXP </TableCell>
+                  <TableCell align="right"> {(c.exp/10).toFixed(1)} EXP </TableCell>
                   <TableCell align="right"> {c.money} G </TableCell>
                 </TableRow>
               ))}
               <TableRow>
                 <TableCell><Typography color="primary">{summary.title}</Typography></TableCell>
-                <TableCell align="right"><Typography color="primary">{summary.exp.toFixed(1)} EXP </Typography></TableCell>
+                <TableCell align="right"><Typography color="primary">{(summary.exp/10).toFixed(1)} EXP </Typography></TableCell>
                 <TableCell align="right"><Typography color="primary">{summary.money} G </Typography></TableCell>
               </TableRow>
             </TableBody>

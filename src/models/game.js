@@ -17,7 +17,7 @@ export default class Game {
     const currentCharacterIds = this.characters.map((c)=>c.id)
     const newcomerIds = Character.findNewcomerIds(currentCharacterIds, size)
     const newcomers = newcomerIds.map((id)=>{
-      const exp = (_.random(1, 2.5) * this.round).toFixed(1)
+      const exp = _.random(10, 25) * this.round
       return new Character(id, exp)
     })
     return newcomers

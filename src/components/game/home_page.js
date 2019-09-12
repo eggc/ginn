@@ -7,6 +7,14 @@ import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 
 export default ({game}) => {
+  const renderCharacter = (c) => {
+    return (
+      <div key={c.id}>
+        {c.fullName()} / {c.power()}
+      </div>
+    )
+  }
+
   return (
     <Page>
       <Grid container>
@@ -16,7 +24,7 @@ export default ({game}) => {
           </Typography>
           <Typography component="div">
             <div>
-              仲間 : {game.characters.map((c)=><span key={c.id}>{c.name} {c.exp}</span>)}
+              仲間 : {game.characters.map(renderCharacter)}
             </div>
             <div>
               資金 : {game.money}

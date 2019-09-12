@@ -40,7 +40,7 @@ export default ({onComplete, newcomer}) => {
         <Grid item xs={12}>
           <Typography variant="subtitle1" color="secondary">呼び鈴が鳴った</Typography>
           <Typography>同行を申し出ている者があるようだ。</Typography>
-          <Typography>{newcomer.name} {newcomer.power}+{newcomer.exp}</Typography>
+          <Typography color="primary">{newcomer.fullName()} {newcomer.power()}</Typography>
         </Grid>
         <Grid item xs={6}>
           <Link to="/game/home" onClick={onClick}>

@@ -8,8 +8,12 @@ export default class Character {
     this.title = characterSeed.title
     this.name = characterSeed.name
     this.description = characterSeed.description
-    this.power = characterSeed.power
-    this.exp = exp
+    this.basePower = Number(characterSeed.power)
+    this.exp = Number(exp)
+  }
+
+  power() {
+    return ((this.exp + this.basePower)/10).toFixed(1)
   }
 
   fullName() {
