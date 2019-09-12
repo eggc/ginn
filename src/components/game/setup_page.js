@@ -2,20 +2,18 @@ import React from 'react'
 import { Link } from "react-router-dom"
 
 import Page from '../page'
-import {characters} from '../../seeds/'
-
 import CharacterButtons from '../shared/character_buttons'
 
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 
-export default ({onComplete}) => {
+export default ({onComplete, newcomers}) => {
   const [character, setCharacter] = React.useState(null)
 
   const onClick = (e) => {
     if (character) {
-      onComplete(characters[character])
+      onComplete(character)
     } else {
       alert("選べ")
       e.preventDefault()
@@ -28,8 +26,8 @@ export default ({onComplete}) => {
         <Grid item xs={12}>
           <Typography variant="subtitle1" color="secondary">主人公を選べ</Typography>
           <CharacterButtons multiple={false}
-                            characters={characters}
-                            onChange={(ids) => setCharacter(ids[0])} />
+                            characters={newcomers}
+                            onChange={(activeCharacters) => setCharacter(activeCharacters[0])} />
         </Grid>
 
         <Grid item xs={6}>
