@@ -12,7 +12,9 @@ export default class Game {
   createNewcomer() {
     const newcomers = characters.filter((c)=> !this.characters.includes(c))
     const newcomer = _.sample(newcomers)
-    newcomer.exp = (_.random(1, 2.5) * this.round).toFixed(1)
+    if(newcomer) {
+      newcomer.exp = (_.random(1, 2.5) * this.round).toFixed(1)
+    }
     return newcomer
   }
 }
