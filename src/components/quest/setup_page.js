@@ -5,7 +5,7 @@ import Page from '../page'
 import {locations} from '../../seeds/'
 
 import LocationButtons from './location_buttons'
-import CharacterButtons from './character_buttons'
+import CharacterButtons from '../shared/character_buttons'
 
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'

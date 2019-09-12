@@ -3,9 +3,6 @@ import { Link } from "react-router-dom"
 
 import Page from '../page'
 import {characters} from '../../seeds/'
-
-import CharacterButtons from '../quest/character_buttons'
-
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
