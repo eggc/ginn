@@ -35,7 +35,8 @@ export default ({onNext, characters}) => {
           <LocationButtons locations={locations} onChange={(id) => quest.location = id} />
 
           <Typography variant="subtitle1" color="secondary">誰が向かうか？</Typography>
-          <CharacterButtons characters={characters} onChange={(ids) => quest.characters = ids} />
+          <CharacterButtons characters={characters}
+                            onChange={(activeCharacters) => quest.characters = activeCharacters.map((c)=>c.id)} />
 
           {/* <Typography variant="subtitle1" color="secondary">イベントカードを使用するか？</Typography>
               <SpiceButtons spices={spices} onChange={(id) => quest.spice = id} /> */}
