@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button'
 export default ({character, active, onClick}) => {
   return (
     <Button
-      onClick={() => onClick(character.id)}
+      onClick={() => onClick(character)}
       color={active ? "primary" : "default"}
       >
       <Typography variant="body1">{character.title}</Typography>
