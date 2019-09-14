@@ -1,43 +1,36 @@
 import Game from '../models/game'
-import Character from '../models/character'
+import CharacterStore from './character_store'
 
 class GameStore {
   load() {
-    const gameBase = this._initGameBase()
-    const game = this._createGame(gameBase)
-    console.debug("load game", game)
-    return game
+    const serial = JSON.parse(localStorage.getItem("game"))
+    if(serial) {
+      const game = this.deserialize(serial)
+      console.debug("load game", game)
+      return game
+    } else {
+      return new Game(0, 0, [])
+    }
   }
 
   save(game) {
-    const exps = {}
-    game.characters.forEach((c)=> exps[c.id] = c.exp)
-
-    const gameBase = {
-      round: game.round,
-      money: game.money,
-      characters: game.characters.map((c)=>c.id),
-      exps: exps
-    }
-    console.debug("save game", gameBase)
-    localStorage.setItem("game", JSON.stringify(gameBase))
+    console.debug("save game", game)
+    const serial = this.serialize(game)
+    localStorage.setItem("game", JSON.stringify(serial))
   }
 
-  _initGameBase() {
-    const gameBase = JSON.parse(localStorage.getItem("game")) || {}
-    gameBase.characters = gameBase.characters || []
-    gameBase.exps = gameBase.exps || {}
-    gameBase.money = gameBase.money || 0
-    gameBase.round = gameBase.round || 1
-    return gameBase
+  serialize(game) {
+    return [
+      game.round,
+      game.money,
+      game.characters.map((c)=>CharacterStore.serialize(c))
+    ]
   }
 
-  _createGame(gameBase) {
-    return new Game(
-      gameBase.round,
-      gameBase.money,
-      gameBase.characters.map((c) => new Character(c, gameBase.exps[c]))
-    )
+  deserialize(serial) {
+    const [round, money, charactersSerial] = serial
+    const characters = charactersSerial.map((c)=>CharacterStore.deserialize(c))
+    return new Game(round, money, characters)
   }
 }
 
