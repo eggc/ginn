@@ -7,13 +7,14 @@ import NewcomerPage from './newcomer_page'
 import Nav from '../nav'
 
 import gameStore from '../../stores/game_store'
+import CharacterFactory from '../../factories/character_factory'
 
 export default () => {
   const [game, setGame] = React.useState(gameStore.load())
   const appendCharacter = (character) => {
     game.characters.push(character)
     gameStore.save(game)
-    setGame(gameStore.load())
+    setGame(game)
   }
 
   return (
@@ -27,13 +28,14 @@ export default () => {
           <Route exact path="/game/setup" render={(routeProps) =>
             <SetupPage history={routeProps.history}
                                onComplete={appendCharacter}
-                               hero={game.createHero()} />}
+                               hero={CharacterFactory.create(0)} />}
           />
           <Route exact path="/game/home" render={(routeProps) =>
             <HomePage history={routeProps.history} game={game} />
           } />
           <Route exact path="/game/newcomer">
-            <NewcomerPage onComplete={appendCharacter} newcomer={game.createNewcomer()} />
+            <NewcomerPage onComplete={appendCharacter}
+                          newcomer={CharacterFactory.randomPick()} />
           </Route>
         </Switch>
       </Router>
