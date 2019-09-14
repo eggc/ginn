@@ -12,7 +12,7 @@ import SectionFactory from '../../factories/sections_factory'
 
 export default () => {
   const [game, setGame] = React.useState(GameStore.load())
-  const [results, setResults] = React.useState(game.quest.results)
+  const [results, setResults] = React.useState(game.quest && game.quest.results)
 
   const onSetupComplete = (plan) => {
     game.quest = plan.quest
