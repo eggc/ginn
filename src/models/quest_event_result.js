@@ -1,5 +1,8 @@
-export default class QuestEventResult {
+import Model from './model'
+
+export default class QuestEventResult extends Model {
   constructor(id, money, exp, name, body) {
+    super()
     this.id = id
     this.money = money
     this.exp = exp
