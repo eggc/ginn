@@ -6,14 +6,14 @@ import HomePage from './home_page'
 import NewcomerPage from './newcomer_page'
 import Nav from '../nav'
 
-import gameStore from '../../stores/game_store'
+import GameStore from '../../stores/game_store'
 import CharacterFactory from '../../factories/character_factory'
 
 export default () => {
-  const [game, setGame] = React.useState(gameStore.load())
+  const [game, setGame] = React.useState(GameStore.load())
   const appendCharacter = (character) => {
     game.characters.push(character)
-    gameStore.save(game)
+    GameStore.save(game)
     setGame(game)
   }
 
