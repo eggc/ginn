@@ -15,7 +15,7 @@ export default () => {
   const qe = QuestEventFactory.create(0)
 
   return (
-    <Page>
+    <Page fullWidth>
       <SeedTable factory={LocationFactory} />
       <SeedTable factory={QuestEventResultFactory} />
       <SeedTable factory={QuestEventFactory} />

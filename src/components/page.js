@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./page.module.css"
 
-export default ({children, onClick, header}) => {
+export default ({children, onClick, header, fullWidth}) => {
   const renderHeader = () => (
     <div className={styles.pageHeader}>{header}</div>
   )
@@ -10,7 +10,7 @@ export default ({children, onClick, header}) => {
     <div className={styles.pageBackground} onClick={onClick}>
       <div className={styles.pageBackgroundShadow}>
         <div className={styles.pageScrollable}>
-          <div className={styles.pageContainer}>
+          <div className={fullWidth ? '' : styles.pageContainer}>
             {header && renderHeader()}
             {children}
           </div>
