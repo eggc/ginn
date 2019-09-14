@@ -2,7 +2,6 @@ import React from 'react'
 import Page from '../page'
 import Sections from './sections'
 import Grid from '@material-ui/core/Grid'
-import { Link } from "react-router-dom"
 import Button from '@material-ui/core/Button'
 
 export default ({onComplete, sections}) => {
@@ -11,9 +10,7 @@ export default ({onComplete, sections}) => {
 
   const nextButton = (
     <Grid item xs={12}>
-      <Link onClick={onComplete}>
-        <Button fullWidth>次へ</Button>
-      </Link>
+      <Button fullWidth onClick={onComplete}>次へ</Button>
     </Grid>
   )
 
