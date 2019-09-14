@@ -1,7 +1,5 @@
 import _ from 'lodash'
 import React from 'react'
-import { HashRouter as Router, Route, Switch } from "react-router-dom"
-
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -13,7 +11,7 @@ export default ({factory}) => {
     if (Array.isArray(val)) {
       return val.map((v,j) => <span key={j}>{_.truncate(v)}<br/></span>)
     } else {
-      return _.truncate(val)
+      return val
     }
   }
 
