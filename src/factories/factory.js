@@ -2,6 +2,7 @@ import _ from 'lodash'
 
 export default class Factory {
   constructor(seeds, targetClass) {
+    this.instances = {}
     this.seeds = seeds
     this.className = targetClass.name
     this.targetClass = targetClass
@@ -21,8 +22,12 @@ export default class Factory {
   }
 
   create(id) {
-    const attrs = this.attributes(id)
-    return new this["targetClass"](id, ...attrs)
+    if(!this.instances[id]) {
+      const attrs = this.attributes(id)
+      this.instances[id] = new this["targetClass"](id, ...attrs)
+    }
+
+    return this.instances[id]
   }
 
   randomPick (size = 1, filterIds = []) {
