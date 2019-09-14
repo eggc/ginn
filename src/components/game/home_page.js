@@ -19,18 +19,13 @@ export default ({game}) => {
     <Page>
       <Grid container>
         <Grid item xs={12}>
-          <Typography color="secondary">
-            ホーム
-          </Typography>
+          <Typography color="secondary">月詠の酒場 -倉庫-</Typography>
           <Typography component="div">
             <div>
               仲間 : {game.characters.map(renderCharacter)}
             </div>
             <div>
               資金 : {game.money}
-            </div>
-            <div>
-              倉庫 : {game.items}
             </div>
           </Typography>
         </Grid>

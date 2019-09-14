@@ -24,9 +24,11 @@ export default () => {
           <Route exact path="/game" render={(routeProps) =>
             <RootPage history={routeProps.history}/>}
           />
-          <Route exact path="/game/setup">
-            <SetupPage onComplete={appendCharacter} newcomers={game.createNewcomers(4)} />
-          </Route>
+          <Route exact path="/game/setup" render={(routeProps) =>
+            <SetupPage history={routeProps.history}
+                       onComplete={appendCharacter}
+                       hero={game.createHero()} />}
+          />
           <Route exact path="/game/home"><HomePage game={game} /></Route>
           <Route exact path="/game/newcomer">
             <NewcomerPage onComplete={appendCharacter} newcomer={game.createNewcomer()} />

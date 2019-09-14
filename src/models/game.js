@@ -9,6 +9,10 @@ export default class Game {
     this.characters = characters
   }
 
+  createHero() {
+    return new Character(0)
+  }
+
   createNewcomer() {
     return this.createNewcomers(1)[0]
   }

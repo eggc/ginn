@@ -13,6 +13,12 @@ export default createMuiTheme({
     secondary: secondary
   },
   overrides: {
+    MuiTypography: {
+      paragraph: {
+        marginBottom: "0.5rem"
+      }
+    },
+
     MuiButton: {
       text: {
         color: "white",
