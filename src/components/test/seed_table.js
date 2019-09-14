@@ -11,8 +11,8 @@ import TableRow from '@material-ui/core/TableRow'
 export default ({factory}) => {
   const renderRow = (i) =>{
     const p = factory.create(i)
-    const keys = p.attributeNames()
-    const cells = keys.map((key) => <TableCell key={key}>{p[key]}</TableCell>)
+    const attrs = p.attributes()
+    const cells = _.map(attrs, (val,key) => <TableCell key={key}>{val}</TableCell>)
     return <TableRow key={i}>
       {cells}
     </TableRow>

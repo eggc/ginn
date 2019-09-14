@@ -10,6 +10,10 @@ export default class QuestEvent extends Model {
   }
 
   attributeNames() {
-    return ['id', 'name', 'body']
+    return ['id', 'name', 'body', 'resultSize']
+  }
+
+  resultSize() {
+    return this.results.length
   }
 }

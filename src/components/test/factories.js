@@ -18,12 +18,7 @@ export default () => {
     <Page>
       <SeedTable factory={LocationFactory} />
       <SeedTable factory={QuestEventResultFactory} />
-
-      QuestEvent
-      <div>{qe.name}</div>
-      <div>{qe.body}</div>
-      <div>{qe.results[0].name}</div>
-      <div>{qe.results[0].body}</div><br/>
+      <SeedTable factory={QuestEventFactory} />
 
       Quest
       <div>{q.name}</div>
