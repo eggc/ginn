@@ -2,20 +2,29 @@ import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import Typist from 'react-typist';
 
-export default ({body, done, color, hideCursor}) => {
-  const texts = body.replace(/。/g, "。%%").split("%%")
-  hideCursor = hideCursor === undefined ? true : false
+export default ({body, done, color}) => {
+  const lines = body.split("<br>")
+
+  const renderLine = (line, i) => {
+    const texts = line.replace(/。/g, "。%%").split("%%")
+    return (
+      <span key={i}>
+        {texts.map((t, j)=><span key={j}>{t}<Typist.Delay ms={300} /></span>)}
+        <br />
+      </span>
+    )
+  }
 
   const content = (
     <Typography color={color} align="left" variant="body1" component="span">
-      {texts.map((t, i)=><span key={i}>{t}<Typist.Delay ms={300} /></span>)}
+      {lines.map(renderLine)}
     </Typography>
   )
 
   return (
     <React.Fragment>
       {done && <Typography paragraph>{content}</Typography>}
-      {!done && <Typist cursor={{hideWhenDone: hideCursor}}>{content}</Typist>}
+      {!done && <Typist>{content}</Typist>}
     </React.Fragment>
   )
 }
