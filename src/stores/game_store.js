@@ -1,5 +1,6 @@
 import Game from '../models/game'
 import CharacterStore from './character_store'
+import QuestStore from './quest_store'
 
 class GameStore {
   load() {
@@ -23,14 +24,16 @@ class GameStore {
     return [
       game.round,
       game.money,
-      game.characters.map((c)=>CharacterStore.serialize(c))
+      game.characters.map((c)=>CharacterStore.serialize(c)),
+      QuestStore.serialize(game.quest)
     ]
   }
 
   deserialize(serial) {
-    const [round, money, charactersSerial] = serial
+    const [round, money, charactersSerial, questSerial] = serial
     const characters = charactersSerial.map((c)=>CharacterStore.deserialize(c))
-    return new Game(round, money, characters)
+    const quest = QuestStore.deserialize(questSerial)
+    return new Game(round, money, characters, quest)
   }
 }
 

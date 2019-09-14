@@ -6,18 +6,19 @@ import SetupPage from './setup_page'
 import ProgressPage from './progress_page'
 import EvaluatePage from './evaluate_page'
 
-import gameStore from '../../stores/game_store'
-import questStore from '../../stores/quest_store'
+import GameStore from '../../stores/game_store'
+import QuestFactory from '../../factories/quest_factory'
 import SectionFactory from '../../factories/sections_factory'
 
 export default () => {
-  console.debug("render main")
-  const [quest, setQuest] = React.useState(questStore.load())
-  const [game, setGame] = React.useState(gameStore.load())
-  const onNext = (q) => {
-    questStore.save(q)
-    setQuest(questStore.load())
+  const [game, setGame] = React.useState(GameStore.load())
+  const setQuest = (plan) => {
+    game.quest = plan.quest
+    game.quest.characters = plan.characters
+    GameStore.save(game)
+    setGame(game)
   }
+
   const onComplete = (result) => {
     game.round += 1
     game.money += result.money
@@ -26,7 +27,7 @@ export default () => {
         c.exp += result.exp
       }
     })
-    gameStore.save(game)
+    GameStore.save(game)
   }
 
   return (
@@ -36,7 +37,9 @@ export default () => {
 
         <Switch>
           <Route path="/quest/setup">
-            <SetupPage onNext={onNext} characters={game.characters}/>
+            <SetupPage onNext={setQuest}
+                       characters={game.characters}
+                       quests={QuestFactory.randomPick(3)} />
           </Route>
           <Route path="/quest/progress" render={(routeProps) =>
             <ProgressPage history={routeProps.history} sections={SectionFactory.create(quest)}/>}

@@ -1,42 +1,21 @@
-import {locations, characters, spices, questEvents} from '../seeds/'
-import _ from 'lodash'
+import QuestFactory from '../factories/quest_factory'
+import CharacterStore from './character_store'
 
 class QuestStore {
-  load() {
-    const questBase = this._initQuestBase()
-    const quest = {
-      location: locations[questBase.location],
-      characters: questBase.characters.map((c) => characters[c]),
-      spice: spices[questBase.spice],
-      events: questBase.events.map((e) => questEvents[e]),
-      results: this._restoreResult(questBase)
-    }
-    console.debug("load quest", quest)
+  serialize(quest) {
+    return [
+      quest.id,
+      quest.characters.map((c)=>CharacterStore.serialize(c))
+    ]
+  }
+
+  deserialize(serial) {
+    if (!serial) { return }
+
+    const [id, charactersSerial] = serial
+    const quest = QuestFactory.create(id)
+    quest.characters = charactersSerial.map((c)=>CharacterStore.deserialize(c))
     return quest
-  }
-
-  save(quest) {
-    console.debug("save quest", quest)
-
-    const events = _.shuffle(questEvents).slice(2)
-    quest.events = events.map((e) => e.id)
-    quest.results = events.map((e) => _.sample(e.results).id)
-    localStorage.setItem("quest", JSON.stringify(quest))
-  }
-
-  _initQuestBase() {
-    const questBase = JSON.parse(localStorage.getItem("quest")) || {}
-    questBase.characters = questBase.characters || []
-    questBase.spices = questBase.spices || []
-    questBase.events = questBase.events || []
-    return questBase
-  }
-
-  _restoreResult(questBase) {
-    return questBase.events.map((e,i) => {
-      const r = questBase.results[i]
-      return questEvents[e].results[r]
-    })
   }
 }
 
