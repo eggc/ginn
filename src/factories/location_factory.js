@@ -1,16 +1,6 @@
 import locations from '../seeds/locations'
 import Location from '../models/location'
+import Factory from './factory'
 
-class LocationFactory {
-  create(id) {
-    const seed = locations[id]
-    if (seed) {
-      return new Location(id, ...seed)
-    } else {
-      throw new Error(`Location is not found: ${id}`)
-    }
-  }
-}
-
-const factory = new LocationFactory()
+const factory = new Factory(locations, Location)
 export default factory
