@@ -12,7 +12,7 @@ import SectionFactory from '../../factories/sections_factory'
 
 export default () => {
   const [game, setGame] = React.useState(GameStore.load())
-  const setQuest = (plan) => {
+  const onSetupComplete = (plan) => {
     game.quest = plan.quest
     game.quest.characters = plan.characters
     game.quest.resolve()
@@ -32,7 +32,7 @@ export default () => {
 
         <Switch>
           <Route path="/quest/setup">
-            <SetupPage onNext={setQuest}
+            <SetupPage onNext={onSetupComplete}
                        characters={game.characters}
                        quests={QuestFactory.randomPick(3)} />
           </Route>
