@@ -13,8 +13,7 @@ import Button from '@material-ui/core/Button'
 
 const quest = {
   location: null,
-  characters: [],
-  spice: null
+  characters: []
 }
 
 export default ({onNext, characters}) => {
@@ -37,9 +36,6 @@ export default ({onNext, characters}) => {
           <Typography variant="subtitle1" color="secondary">誰が向かうか？</Typography>
           <CharacterButtons characters={characters}
                             onChange={(activeCharacters) => quest.characters = activeCharacters.map((c)=>c.id)} />
-
-          {/* <Typography variant="subtitle1" color="secondary">イベントカードを使用するか？</Typography>
-              <SpiceButtons spices={spices} onChange={(id) => quest.spice = id} /> */}
         </Grid>
 
         <Grid item xs={6}>
