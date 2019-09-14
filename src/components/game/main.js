@@ -11,6 +11,7 @@ import CharacterFactory from '../../factories/character_factory'
 
 export default () => {
   const [game, setGame] = React.useState(GameStore.load())
+  const newcomer = CharacterFactory.randomPick(1, game.characters.map((c)=>c.id))
   const appendCharacter = (character) => {
     game.characters.push(character)
     GameStore.save(game)
@@ -35,7 +36,7 @@ export default () => {
           } />
           <Route exact path="/game/newcomer">
             <NewcomerPage onComplete={appendCharacter}
-                          newcomer={CharacterFactory.randomPick()} />
+                          newcomer={newcomer} />
           </Route>
         </Switch>
       </Router>
