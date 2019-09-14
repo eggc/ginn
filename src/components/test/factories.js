@@ -18,13 +18,15 @@ export default () => {
       <div>{l.name}</div>
       <div>{l.description}</div><br/>
 
-      QuestEvent
-      <div>{qe.name}</div>
-      <div>{qe.body}</div><br/>
-
       QuestEventResult
       <div>{ql.name}</div>
       <div>{ql.body}</div><br/>
+
+      QuestEvent
+      <div>{qe.name}</div>
+      <div>{qe.body}</div>
+      <div>{qe.results[0].name}</div>
+      <div>{qe.results[0].body}</div><br/>
 
       Quest
       <div>{q.name}</div>
