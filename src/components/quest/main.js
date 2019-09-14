@@ -42,7 +42,7 @@ export default () => {
                        quests={QuestFactory.randomPick(3)} />
           </Route>
           <Route path="/quest/progress" render={(routeProps) =>
-            <ProgressPage history={routeProps.history} sections={SectionFactory.create(quest)}/>}
+            <ProgressPage history={routeProps.history} sections={SectionFactory.create(game.quest)}/>}
           />
           <Route path="/quest/evaluate">
             <EvaluatePage results={quest.results} onComplete={onComplete} />
