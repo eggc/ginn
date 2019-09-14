@@ -12,14 +12,9 @@ import SeedTable from './seed_table'
 
 export default () => {
   const q = QuestFactory.create(0)
-  const qe = QuestEventFactory.create(0)
 
   return (
     <Page fullWidth>
-      <SeedTable factory={LocationFactory} />
-      <SeedTable factory={QuestEventResultFactory} />
-      <SeedTable factory={QuestEventFactory} />
-
       Quest
       <div>{q.name}</div>
       <div>{q.description}</div>
@@ -27,7 +22,6 @@ export default () => {
       <div>{q.location.description}</div>
       <div>{q.events[0].name}</div>
       <div>{q.events[0].body}</div><br/>
-
     </Page>
   )
 }
