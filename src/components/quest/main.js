@@ -12,12 +12,15 @@ import SectionFactory from '../../factories/sections_factory'
 
 export default () => {
   const [game, setGame] = React.useState(GameStore.load())
+  const [results, setResults] = React.useState(game.quest.results)
+
   const onSetupComplete = (plan) => {
     game.quest = plan.quest
     game.quest.characters = plan.characters
     game.quest.resolve()
     GameStore.save(game)
     setGame(game)
+    setResults(game.quest.results)
   }
 
   const onComplete = () => {
@@ -40,7 +43,7 @@ export default () => {
             <ProgressPage history={routeProps.history} sections={SectionFactory.create(game.quest)}/>}
           />
           <Route path="/quest/evaluate">
-            <EvaluatePage results={game.quest.results} onComplete={onComplete} />
+            <EvaluatePage results={results} onComplete={onComplete} />
           </Route>
         </Switch>
       </Router>
