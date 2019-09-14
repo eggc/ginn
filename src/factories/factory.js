@@ -25,9 +25,10 @@ export default class Factory {
     return new this["targetClass"](id, ...attrs)
   }
 
-  randomPick (size) {
+  randomPick (size = 1) {
     const ids = _.times(this.seeds.length, (i) => i)
     const targets = _.shuffle(ids).slice(0, size)
-    return targets.map((id)=>this.create(id))
+    const results = targets.map((id)=>this.create(id))
+    return (size == 1) ? results[0] : results
   }
 }
