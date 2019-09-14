@@ -18,7 +18,7 @@ export default ({onComplete, sections}) => {
     <Page onClick={onClick}>
       <Grid container>
         <Grid item xs={12}>
-          <Sections sections={sections} step={step} />
+          <Sections sections={sections} step={step} onTypingDone={onClick} />
         </Grid>
         {(step >= sections.length) && nextButton}
       </Grid>

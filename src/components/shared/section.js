@@ -2,7 +2,7 @@ import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import Typist from 'react-typist';
 
-export default ({body, done, color}) => {
+export default ({body, done, color, onTypingDone}) => {
   const lines = body.split("<br>")
 
   const renderLine = (line, i) => {
@@ -24,7 +24,7 @@ export default ({body, done, color}) => {
   return (
     <React.Fragment>
       {done && <Typography paragraph>{content}</Typography>}
-      {!done && <Typist>{content}</Typist>}
+      {!done && <Typist onTypingDone={onTypingDone}>{content}</Typist>}
     </React.Fragment>
   )
 }
