@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import Model from './model'
 
 export default class QuestEvent extends Model {
@@ -14,5 +15,9 @@ export default class QuestEvent extends Model {
 
   resultNames() {
     return this.results.map((r)=>r.name)
+  }
+
+  pickResult() {
+    return _.sample(this.results)
   }
 }

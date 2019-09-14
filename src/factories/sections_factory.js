@@ -7,9 +7,9 @@ class SectionFactory {
     const sections = []
     sections.push(this._createFirstSection(quest))
 
-    _.times(quest.events.length, (i) => {
-      sections.push(this._createEventSection(quest.events[i]))
-      sections.push(this._createResultSection(quest.results[i]))
+    quest.events.forEach((event) => {
+      sections.push(this._createEventSection(event))
+      sections.push(this._createResultSection(event.pickResult()))
     })
 
     sections.push(this._createLastSection(quest))
@@ -20,14 +20,14 @@ class SectionFactory {
   _createFirstSection() {
     return {
       title: "開始",
-      body: this.quest.location.name + "の探検",
+      body: this.quest.name,
       color: "secondary"
     }
   }
 
   _createEventSection(questEvent) {
     return {
-      title: questEvent.title,
+      title: questEvent.name,
       body: questEvent.body,
       color: "inherit"
     }
@@ -35,7 +35,7 @@ class SectionFactory {
 
   _createResultSection(result) {
     return {
-      title: result.title,
+      title: result.name,
       body: result.body,
       color: "primary"
     }
