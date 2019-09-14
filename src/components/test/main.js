@@ -13,12 +13,14 @@ export default () => {
   return (
     <Router>
       <Nav resourceName="test" paths={["locations", "quest_event_results", "quest_events", "quests"]}></Nav>
-      <Switch>
-        <Route path="/test/locations"><Page fullWidth><SeedTable factory={LocationFactory} /></Page></Route>
-        <Route path="/test/quest_event_results"><Page fullWidth><SeedTable factory={QuestEventResultFactory} /></Page></Route>
-        <Route path="/test/quest_events"><Page fullWidth><SeedTable factory={QuestEventFactory} /></Page></Route>
-        <Route path="/test/quests"><Page fullWidth><SeedTable factory={QuestFactory} /></Page></Route>
-      </Switch>
+      <Page fullWidth>
+        <Switch>
+          <Route path="/test/locations"><SeedTable factory={LocationFactory} /></Route>
+          <Route path="/test/quest_event_results"><SeedTable factory={QuestEventResultFactory} /></Route>
+          <Route path="/test/quest_events"><SeedTable factory={QuestEventFactory} /></Route>
+          <Route path="/test/quests"><SeedTable factory={QuestFactory} /></Route>
+        </Switch>
+      </Page>
     </Router>
   )
 }
