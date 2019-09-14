@@ -1,14 +1,13 @@
-import {characters} from '../seeds/'
 import _ from 'lodash'
+import Model from './model'
 
-export default class Character {
-  constructor(id, exp=0) {
-    const characterSeed = characters[id]
-    this.id = id
-    this.title = characterSeed.title
-    this.name = characterSeed.name
-    this.description = characterSeed.description
-    this.basePower = Number(characterSeed.power)
+export default class Character extends Model {
+  constructor(id, title, name, profile, basePower, exp) {
+    super(id)
+    this.title = title
+    this.name = name
+    this.profile = profile
+    this.basePower = Number(basePower)
     this.exp = Number(exp)
   }
 
@@ -19,13 +18,4 @@ export default class Character {
   fullName() {
     return this.title + this.name
   }
-}
-
-Character.findNewcomerId = (excludeIds) => {
-  return this.findNewcomerIds(excludeIds, 1)[0]
-}
-Character.findNewcomerIds = (excludeIds, size) => {
-  const characterIds = characters.map((c)=>c.id)
-  const newcomers = _.difference(characterIds, excludeIds)
-  return _.shuffle(newcomers).slice(0, size)
 }
