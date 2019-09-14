@@ -32,7 +32,7 @@ export default ({onNext, characters}) => {
       <Grid container>
         <Grid item xs={12}>
           <Typography variant="subtitle1" color="secondary">何処へ向かうか？</Typography>
-          <LocationButtons locations={locations} onChange={(id) => quest.location = id} />
+          <LocationButtons locations={locations} onChange={(l) => quest.location = l} />
 
           <Typography variant="subtitle1" color="secondary">誰が向かうか？</Typography>
           <CharacterButtons characters={characters}

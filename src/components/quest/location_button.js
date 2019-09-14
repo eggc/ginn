@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid'
 export default ({location, active, onClick}) => {
   return (
     <Button
-      onClick={() => onClick(location.id)}
+      onClick={() => onClick(location)}
       color={active ? "primary" : "default"}
       fullWidth >
       <Grid container>

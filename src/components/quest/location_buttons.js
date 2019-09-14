@@ -9,7 +9,7 @@ export default ({locations, onChange}) => {
       <LocationButton
         key={location.id}
         location={location}
-        onClick={(id) => { setActiveLocationId(id); onChange(id) } }
+        onClick={(l) => { setActiveLocationId(l.id); onChange(l) } }
         active={location.id === activeLocationId} />
     )
   }
