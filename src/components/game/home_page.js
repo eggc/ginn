@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom"
 
 import Page from '../page'
+import Section from '../shared/section'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
@@ -20,9 +21,10 @@ export default ({game}) => {
       <Grid container>
         <Grid item xs={12}>
           <Typography color="secondary">月詠の酒場 -倉庫-</Typography>
+          <Section body="店長の厚意に甘えて、月詠の酒場の倉庫をねぐらにしている" />
           <Typography component="div">
             <div>
-              仲間 : {game.characters.map(renderCharacter)}
+              {game.characters.map(renderCharacter)}
             </div>
             <div>
               資金 : {game.money}
