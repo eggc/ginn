@@ -13,14 +13,13 @@ export default ({game, history}) => {
     body: '月詠の酒場 -倉庫-',
     color: "secondary"
   },{
-    body: "店長の厚意に甘えて、月詠の酒場の倉庫をねぐらにしている"
-  },{
-    body: "資金 : " + game.money
+    body: "店長の厚意に甘えて、月詠の酒場の倉庫をねぐらにしている。"
   }]
 
-  game.characters.forEach((c) => {
-    sections.push({ body:  c.fullName() + " : " + c.power() })
-  })
+  const texts = []
+  texts.push("資金 : " + game.money)
+  game.characters.forEach((c) => texts.push(c.fullName() + " : " + c.power()))
+  sections.push({ body: texts.join("<br>")})
 
   const onComplete = () => {
     history.push("/quest/setup")
