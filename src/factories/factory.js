@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 export default class Factory {
   constructor(seeds, targetClass) {
     this.seeds = seeds
@@ -21,5 +23,11 @@ export default class Factory {
   create(id) {
     const attrs = this.attributes(id)
     return new this["targetClass"](id, ...attrs)
+  }
+
+  randomPick (size) {
+    const ids = _.times(this.seeds.length, (i) => i)
+    const targets = _.shuffle(ids).slice(0, size)
+    return targets.map((id)=>this.create(id))
   }
 }
