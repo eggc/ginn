@@ -43,7 +43,7 @@ export default ({results, onComplete}) => {
             <TableBody style={{borderTop: "solid 1px white"}}>
               {results.map((c,i)=>(
                 <TableRow key={i}>
-                  <TableCell>{c.title}</TableCell>
+                  <TableCell>{c.name}</TableCell>
                   <TableCell align="right"> {(c.exp/10).toFixed(1)} EXP </TableCell>
                   <TableCell align="right"> {c.money} G </TableCell>
                 </TableRow>

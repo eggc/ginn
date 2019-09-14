@@ -30,4 +30,16 @@ export default class Quest extends Model {
   resolve() {
     this.results = this.events.map((e)=>_.sample(e.results))
   }
+
+  totalMoney(){
+    return _.sum(this.results.map((r)=>r.money || 0))
+  }
+
+  totalExp() {
+    return _.sum(this.results.map((r)=>r.exp || 0))
+  }
+
+  unitExp() {
+    return Math.round(this.totalExp() / this.characters.length)
+  }
 }

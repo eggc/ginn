@@ -20,14 +20,8 @@ export default () => {
     setGame(game)
   }
 
-  const onComplete = (result) => {
-    game.round += 1
-    game.money += result.money
-    game.characters.forEach((c)=>{
-      if ("クエストに参加していたら") {
-        c.exp += result.exp
-      }
-    })
+  const onComplete = () => {
+    game.evaluateQuest()
     GameStore.save(game)
   }
 
@@ -46,7 +40,7 @@ export default () => {
             <ProgressPage history={routeProps.history} sections={SectionFactory.create(game.quest)}/>}
           />
           <Route path="/quest/evaluate">
-            <EvaluatePage results={quest.results} onComplete={onComplete} />
+            <EvaluatePage results={game.quest.results} onComplete={onComplete} />
           </Route>
         </Switch>
       </Router>
