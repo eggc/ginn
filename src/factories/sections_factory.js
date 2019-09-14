@@ -7,9 +7,9 @@ class SectionFactory {
     const sections = []
     sections.push(this._createFirstSection(quest))
 
-    quest.events.forEach((event) => {
-      sections.push(this._createEventSection(event))
-      sections.push(this._createResultSection(event.pickResult()))
+    _.times(quest.events.length, (i) => {
+      sections.push(this._createEventSection(quest.events[i]))
+      sections.push(this._createResultSection(quest.results[i]))
     })
 
     sections.push(this._createLastSection(quest))

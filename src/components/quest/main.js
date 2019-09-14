@@ -15,6 +15,7 @@ export default () => {
   const setQuest = (plan) => {
     game.quest = plan.quest
     game.quest.characters = plan.characters
+    game.quest.resolve()
     GameStore.save(game)
     setGame(game)
   }
