@@ -30,7 +30,7 @@ export default ({onNext, characters, quests}) => {
                            onChange={(q) => setPlan(Object.assign(plan, {quest: q})) } />
           <Typography variant="subtitle1" color="secondary">誰が向かうか？</Typography>
           <CharacterButtons characters={characters}
-                            onChange={(cs) => setPlan(Object.assign(plan, {characters}))} />
+                            onChange={(cs) => setPlan(Object.assign(plan, {characters: cs}))} />
         </Grid>
 
         <Grid item xs={6}>
