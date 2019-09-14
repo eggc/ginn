@@ -3,6 +3,8 @@ import CharacterStore from './character_store'
 
 class QuestStore {
   serialize(quest) {
+    if(!quest) { return }
+
     return [
       quest.id,
       quest.characters.map((c)=>CharacterStore.serialize(c))
