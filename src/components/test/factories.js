@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React from 'react'
 import { HashRouter as Router, Route, Switch } from "react-router-dom"
 
@@ -6,21 +7,17 @@ import QuestFactory from "../../factories/quest_factory"
 import QuestEventFactory from "../../factories/quest_event_factory"
 import QuestEventResultFactory from "../../factories/quest_event_result_factory"
 
+import Page from '../page'
+import SeedTable from './seed_table'
+
 export default () => {
-  const l = LocationFactory.create(0)
   const q = QuestFactory.create(0)
   const qe = QuestEventFactory.create(0)
-  const ql = QuestEventResultFactory.create(0)
 
   return (
-    <React.Fragment>
-      Location
-      <div>{l.name}</div>
-      <div>{l.description}</div><br/>
-
-      QuestEventResult
-      <div>{ql.name}</div>
-      <div>{ql.body}</div><br/>
+    <Page>
+      <SeedTable factory={LocationFactory} />
+      <SeedTable factory={QuestEventResultFactory} />
 
       QuestEvent
       <div>{qe.name}</div>
@@ -36,6 +33,6 @@ export default () => {
       <div>{q.events[0].name}</div>
       <div>{q.events[0].body}</div><br/>
 
-    </React.Fragment>
+    </Page>
   )
 }

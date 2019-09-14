@@ -1,7 +1,7 @@
 export default class Factory {
   constructor(seeds, targetClass) {
     this.seeds = seeds
-    this.className = targetClass.constructor.name
+    this.className = targetClass.name
     this.targetClass = targetClass
   }
 
