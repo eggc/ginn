@@ -2,8 +2,7 @@ import Model from './model'
 
 export default class Quest extends Model {
   constructor(id, location, events, name, description) {
-    super()
-    this.id = id
+    super(id)
     this.location = location
     this.events = events
     this.name = name

@@ -2,8 +2,7 @@ import Model from './model'
 
 export default class QuestEvent extends Model {
   constructor(id, results, name, body) {
-    super()
-    this.id = id
+    super(id)
     this.results = results
     this.name = name
     this.body = body
