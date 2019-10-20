@@ -4,7 +4,7 @@
 }
 
 .titleTextContainer {
-    background: url('/img/lank-frame.png');
+    background: url('../../img/lank-frame.png');
     background-size: 100%;
     background-repeat: no-repeat;
     width: 250px;

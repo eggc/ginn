@@ -1,5 +1,5 @@
 .pageBackground {
-    background: url('/img/background.jpg');
+    background: url('../img/background.jpg');
     height: 100%;
 }
 
@@ -26,7 +26,6 @@
 .pageHeader {
     height: 130px;
     width: 300px;
-    background: url('/img/header-frame.png');
     background-size: 100%;
     background-repeat: no-repeat;
     display: flex;
