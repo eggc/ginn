@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ginn/static/css/main.8d3de7ee.chunk.css",
+    "main.css": "/ginn/static/css/main.de702bf6.chunk.css",
     "main.js": "/ginn/static/js/main.dc266a5f.chunk.js",
     "main.js.map": "/ginn/static/js/main.dc266a5f.chunk.js.map",
     "runtime~main.js": "/ginn/static/js/runtime~main.80879b9c.js",
@@ -8,8 +8,9 @@
     "static/js/2.12cd6590.chunk.js": "/ginn/static/js/2.12cd6590.chunk.js",
     "static/js/2.12cd6590.chunk.js.map": "/ginn/static/js/2.12cd6590.chunk.js.map",
     "index.html": "/ginn/index.html",
-    "precache-manifest.84b2c6e356beb0a2d1cd198e0735f6bd.js": "/ginn/precache-manifest.84b2c6e356beb0a2d1cd198e0735f6bd.js",
+    "precache-manifest.97662886ea3be3c76cf27a81ebc8d8f9.js": "/ginn/precache-manifest.97662886ea3be3c76cf27a81ebc8d8f9.js",
     "service-worker.js": "/ginn/service-worker.js",
-    "static/css/main.8d3de7ee.chunk.css.map": "/ginn/static/css/main.8d3de7ee.chunk.css.map"
+    "static/css/main.de702bf6.chunk.css.map": "/ginn/static/css/main.de702bf6.chunk.css.map",
+    "static/media/root.module.css": "/ginn/static/media/lank-frame.35edca2d.png"
   }
 }
